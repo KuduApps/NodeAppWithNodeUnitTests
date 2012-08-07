@@ -2,7 +2,7 @@
 IF "%SOURCE%" == "" GOTO NOPATH
    :YESPATH
    @ECHO The SOURCE environment variable was detected ..
-   SET SourceDir="%DEPLOYMENT_SOURCE%"
+   SET SourceDir="%SOURCE%"
    GOTO END
    :NOPATH
    @ECHO The SOURCE environment variable was NOT detected.
