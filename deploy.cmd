@@ -1,7 +1,7 @@
 @ECHO off
 IF "%SOURCE%" == "" GOTO NOPATH
    :YESPATH
-   @ECHO The SOURCE environment variable was detected.
+   @ECHO The SOURCE environment variable was detected ..
    SET SourceDir="%DEPLOYMENT_SOURCE%"
    GOTO END
    :NOPATH
@@ -45,4 +45,4 @@ IF ERRORLEVEL 1 GOTO NODEPLOY
    xcopy %TempDir% %TargetDir% /E /Y /EXCLUDE:excludeFiles.txt
    :NODEPLOY   
    pushd %SourceDir%
-   :END
+   :END 
