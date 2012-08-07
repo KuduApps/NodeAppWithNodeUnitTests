@@ -1,33 +1,33 @@
 @ECHO off
-IF "%SOURCE%" == "" GOTO NOPATH
+IF "%DEPLOYMENT_SOURCE%" == "" GOTO NOPATH
    :YESPATH
-   @ECHO The SOURCE environment variable was detected.
+   @ECHO The DEPLOYMENT_SOURCE environment variable was detected.
    SET SourceDir="%DEPLOYMENT_SOURCE%"
    GOTO END
    :NOPATH
-   @ECHO The SOURCE environment variable was NOT detected.
+   @ECHO The DEPLOYMENT_SOURCE environment variable was NOT detected.
    SET SourceDir=%CD%
    GOTO END
    :END
     
-IF "%BUILDTEMP%" == "" GOTO NOPATH
+IF "%TEMP_SOURCE%" == "" GOTO NOPATH
    :YESPATH
-   @ECHO The BUILDTEMP environment variable was detected.
-   SET TempDir="%BUILDTEMP%"
+   @ECHO The TEMP_SOURCE environment variable was detected.
+   SET TempDir="%TEMP_SOURCE%"
    GOTO END
    :NOPATH
-   @ECHO The BUILDTEMP environment variable was NOT detected.
+   @ECHO The TEMP_SOURCE environment variable was NOT detected.
    SET TempDir=C:\TEMP_SOURCE
    GOTO END
    :END
 
-IF "%TARGET%" == "" GOTO NOPATH
+IF "%TARGET_SOURCE%" == "" GOTO NOPATH
    :YESPATH
-   @ECHO The TARGET environment variable was detected.
-   SET TargetDir="%TARGET%"
+   @ECHO The TARGET_SOURCE environment variable was detected.
+   SET TargetDir="%TARGET_SOURCE%"
    GOTO END
    :NOPATH
-   @ECHO The TARGET environment variable was NOT detected.
+   @ECHO The TARGET_SOURCE environment variable was NOT detected.
    SET TargetDir=C:\TARGET_SOURCE
    GOTO END
    :END
