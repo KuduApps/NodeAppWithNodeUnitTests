@@ -1,0 +1,5 @@
+\test\
+excludeFiles.txt
+deploy.cmd
+.deployment
+

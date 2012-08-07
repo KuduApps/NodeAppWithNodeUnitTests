@@ -1,0 +1,25 @@
+{
+  "author": "Mark Cowlishaw <markcowl@microsoft.com>",
+  "name": "node-azure-test",
+  "description": "Basic tests for the Azure SDK in node.js",
+  "version": "0.0.3",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/markcowl/node-azure-test.git"
+  },
+  "main": "test.js",
+  "scripts": {
+    "test": "node node_modules/nodeunit/bin/nodeunit test/basic-tests.js"
+  },
+  "engine": {
+    "node": "~0.6.10"
+  },
+  "dependencies": {  
+     "node-uuid": "*",
+     "nodeunit": "*"
+},
+  "devDependencies": {
+    "nodeunit": "*"
+  },
+  "optionalDependencies": {}
+}
