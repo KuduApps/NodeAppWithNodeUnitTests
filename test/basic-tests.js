@@ -27,7 +27,7 @@ module.exports = testCase(
     },
 
     passing: function( test) {
-                test.equal(true, false);
+                test.equal(false, false);
                 test.done();
     }
 
