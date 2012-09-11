@@ -45,4 +45,5 @@ IF ERRORLEVEL 1 GOTO NODEPLOY
    xcopy %TempDir% %TargetDir% /E /Y /EXCLUDE:excludeFiles.txt
    :NODEPLOY   
    pushd %SourceDir%
+   exit /b 1
    :END
