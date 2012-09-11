@@ -43,6 +43,8 @@ IF ERRORLEVEL 1 GOTO NODEPLOY
    :YESDEPLOY
    @ECHO Deploying files ... 
    xcopy %TempDir% %TargetDir% /E /Y /EXCLUDE:excludeFiles.txt
+   pushd %SourceDir%
+   exit /b 0
    :NODEPLOY   
    pushd %SourceDir%
    exit /b 1
