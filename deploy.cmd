@@ -1,34 +1,34 @@
 @ECHO off
-IF "%SOURCE%" == "" GOTO NOPATH
+IF "%DEPLOYMENT_SOURCE%" == "" GOTO NOPATH
    :YESPATH
-   @ECHO The SOURCE environment variable was detected ..
-   SET SourceDir="%SOURCE%"
+   @ECHO The DEPLOYMENT_SOURCE environment variable was detected.
+   SET SourceDir="%DEPLOYMENT_SOURCE%"
    GOTO END
    :NOPATH
-   @ECHO The SOURCE environment variable was NOT detected.
+   @ECHO The DEPLOYMENT_SOURCE environment variable was NOT detected.
    SET SourceDir=%CD%
    GOTO END
    :END
     
-IF "%BUILDTEMP%" == "" GOTO NOPATH
+IF "%DEPLOYMENT_TEMP%" == "" GOTO NOPATH
    :YESPATH
-   @ECHO The BUILDTEMP environment variable was detected.
-   SET TempDir="%BUILDTEMP%"
+   @ECHO The DEPLOYMENT_TEMP environment variable was detected.
+   SET TempDir="%DEPLOYMENT_TEMP%"
    GOTO END
    :NOPATH
-   @ECHO The BUILDTEMP environment variable was NOT detected.
-   SET TempDir=C:\TEMP_SOURCE
+   @ECHO The DEPLOYMENT_TEMP environment variable was NOT detected.
+   SET TempDir=C:\DEPLOYMENT_TEMP
    GOTO END
    :END
 
-IF "%TARGET%" == "" GOTO NOPATH
+IF "%DEPLOYMENT_TARGET%" == "" GOTO NOPATH
    :YESPATH
-   @ECHO The TARGET environment variable was detected.
-   SET TargetDir="%TARGET%"
+   @ECHO The DEPLOYMENT_TARGET environment variable was detected.
+   SET TargetDir="%DEPLOYMENT_TARGET%"
    GOTO END
    :NOPATH
-   @ECHO The TARGET environment variable was NOT detected.
-   SET TargetDir=C:\TARGET_SOURCE
+   @ECHO The DEPLOYMENT_TARGET environment variable was NOT detected.
+   SET TargetDir=C:\DEPLOYMENT_TARGET
    GOTO END
    :END
 echo %SourceDir%
@@ -43,6 +43,9 @@ IF ERRORLEVEL 1 GOTO NODEPLOY
    :YESDEPLOY
    @ECHO Deploying files ... 
    xcopy %TempDir% %TargetDir% /E /Y /EXCLUDE:excludeFiles.txt
+   pushd %SourceDir%
+   exit /b 0
    :NODEPLOY   
    pushd %SourceDir%
-   :END 
+   exit /b 1
+   :END
